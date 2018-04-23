@@ -66,9 +66,7 @@ class WebLogic:
                 req = requests.post(self.url+':7001/console/j_security_check', data=data, allow_redirects=False, verify=False)
 
                 if req.status_code == 302 and 'console' in req.text and 'LoginForm.jsp' not in req.text:
-                    print('[+] WebLogic password  username: '+user+'  password: '+pwd)
-                    return True
-        return False
+                    print('[+] WebLogic username: '+user+'  password: '+pwd)
 
     def ssrf(self):
         """Version: 10.0.2/10.3.6
